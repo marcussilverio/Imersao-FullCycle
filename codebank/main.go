@@ -1,10 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"database/sql"
+	"fmt"
+	"github.com/codeedu/codebank/domain"
+	"github.com/codeedu/codebank/infrastructure/repository"
+	"github.com/codeedu/codebank/usecase"
+	_ "github.com/lib/pq"
 	"log"
-	_"github.com/lib/pg"
 )
 
 func main() {
