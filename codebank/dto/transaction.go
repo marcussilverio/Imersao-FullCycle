@@ -10,5 +10,6 @@ type Transaction struct {
 	CVV int32
 	Amount float64
 	Store string
+	Description string
 	CreatedAt time.Time
 }

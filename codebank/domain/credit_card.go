@@ -4,7 +4,7 @@ import ("time"
 )
 type CreditCard struct {
 	ID string
-	Nome string
+	Name string
 	Number string
 	ExpirationMonth int32
 	ExpirationYear int32
