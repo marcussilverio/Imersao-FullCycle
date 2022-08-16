@@ -29,7 +29,11 @@ func main() {
 		fmt.Println(err)
 	}
 }
-
+func setupTransactionUseCase(db *sql.DB) usecase.UseCaseTransaction {
+	transactionRepository := repository.NewTransactionRepositoryDb(db)
+	useCase := useCase.NewUseCaseTransaction(transactionRepository)
+	return useCase
+}
 func setupDb() *sql.DB {
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 							"db",
@@ -43,8 +47,4 @@ func setupDb() *sql.DB {
 		log.Fatal("error connecting database")
 	}
 	return db
-}func setupTransactionUseCase(db *sql.DB) usecase.UseCaseTransaction {
-	transactionRepository := repository.NewTransactionRepositoryDb(db)
-	useCase := useCase.NewUseCaseTransaction(transactionRepository)
-	return useCase
 }
