@@ -29,13 +29,13 @@ func (t *TransactionRepositoryDb) SaveTransaction(transaction domain.Transaction
 	if err != nil {
 		return err
 	}
-	if transaction.status == "approved" {
+	if transaction.Status == "approved" {
 		err = t.updateBalance(creditCard)
 		if err != nil {
 			return err
 		}
 	}
-	err = stmt.close()
+	err = stmt.Close()
 	if err != nil {
 		return err
 	}
