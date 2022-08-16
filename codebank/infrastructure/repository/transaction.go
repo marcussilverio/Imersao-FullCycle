@@ -1,5 +1,9 @@
 package repository
-
+import (
+	"database/sql"
+	"errors"
+	"github.com/marcussilverio/codebank/domain"
+)
 type TransactionRepositoryDb struct {
 	db *sql.DB
 }
