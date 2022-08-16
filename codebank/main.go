@@ -31,7 +31,7 @@ func main() {
 }
 func setupTransactionUseCase(db *sql.DB) usecase.UseCaseTransaction {
 	transactionRepository := repository.NewTransactionRepositoryDb(db)
-	useCase := useCase.NewUseCaseTransaction(transactionRepository)
+	useCase := usecase.NewUseCaseTransaction(transactionRepository)
 	return useCase
 }
 func setupDb() *sql.DB {
