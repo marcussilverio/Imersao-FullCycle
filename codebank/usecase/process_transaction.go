@@ -1,8 +1,10 @@
 package usecase
 
 import (
+	"encoding/json"
 	"github.com/marcussilverio/codebank/domain"
 	"github.com/marcussilverio/codebank/dto"
+	"github.com/marcussilverio/codebank/infrastructure/kafka"
 	"time"
 )
 
@@ -36,7 +38,7 @@ func (u UseCaseTransaction) ProcessTransaction(transactionDto dto.Transaction) (
 	if err != nil {
 		return domain.Transaction{}, err
 	}
-	err = u.KafkaProducer.Publish(string(transactionJson), topic:"payments") 
+	err = u.KafkaProducer.Publish(string(transactionJson),os.Getenv(KafkaTransactionsTopic)) 
 	if err != nil{
 		return domain.Transaction{}, err
 	}
